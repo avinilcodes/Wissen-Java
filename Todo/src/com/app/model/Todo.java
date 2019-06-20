@@ -1,40 +1,47 @@
 package com.app.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Todo {
-	private static int count=0;
 	private final int id;
 	private String title;
 	boolean completed;
-	private LocalDate date;
-	public Todo(String title) {
-		this.id = ++count;
+	private LocalDateTime creationTime;
+
+	public Todo(int id, String title) {
+		this.id = id;
 		this.title = title;
 		this.completed = false;
-		this.date = LocalDate.now();
+		this.creationTime = LocalDateTime.now();
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public boolean isCompleted() {
 		return completed;
 	}
-	public LocalDate getDate() {
-		return date;
+
+	public LocalDateTime getDate() {
+		return creationTime;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public void setCompleted(boolean completed) {
 		this.completed = completed;
 	}
+
 	@Override
 	public String toString() {
-		return "Todo [id=" + id + ", title=" + title + ", completed=" + completed + ", date=" + date + "]";
-	}	
-	
+		return "Todo [id=" + id + ", title=" + title + ", completed=" + completed + ", date=" + creationTime + "]";
+	}
+
 }
